@@ -26,15 +26,17 @@ def pickpoints(image, n=9999):
     while stop == False:
         for point in circles:
             cv2.circle(image,(point[0], point[1]),3,(0,255,0),cv2.FILLED)    
-        cv2.imshow("Original", image)
-        cv2.setWindowProperty("Original", cv2.WND_PROP_TOPMOST, 1)
-        cv2.setMouseCallback("Original", detectPoints)
+        cv2.imshow("Point Picker", image)
+        cv2.setWindowProperty("Point Picker", cv2.WND_PROP_TOPMOST, 1)
+        cv2.setMouseCallback("Point Picker", detectPoints)
         cv2.waitKey(1)
         if len(circles) >= n:
             stop = True
     
     for point in circles:
         print(f"{point[0]}, {point[1]}")
+    cv2.destroyWindow("Point Picker")
+    return circles
         
 #TODO: Add a "done" button. (or something)
 
