@@ -27,6 +27,7 @@ def pickpoints(image, n=9999):
         for point in circles:
             cv2.circle(image,(point[0], point[1]),3,(0,255,0),cv2.FILLED)    
         cv2.imshow("Original", image)
+        cv2.setWindowProperty("Original", cv2.WND_PROP_TOPMOST, 1)
         cv2.setMouseCallback("Original", detectPoints)
         cv2.waitKey(1)
         if len(circles) >= n:
